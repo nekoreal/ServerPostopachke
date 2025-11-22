@@ -12,15 +12,18 @@ class User(db.Model):
     def get_recipes(self):
         return [recipe.to_dict() for recipe in self.recipes]
 
-    def to_dict(self):
-        return {
+    def to_dict(self, recursion:bool=False):
+        res={
             'id': self.id,
             'username': self.username,
             'password_hash': self.password_hash,
             'is_admin': self.is_admin,
-            'is_banned': self.is_banned,
-            'recipes': [ recipe.to_dict() for recipe in self.recipes ],
+            'is_banned': self.is_banned
         }
+        if recursion: res.update({
+            'recipes': [ recipe.to_dict() for recipe in self.recipes ]
+        })
+        return res
 
     def __repr__(self):
         return (f"({self.id} id) {self.username}\n"

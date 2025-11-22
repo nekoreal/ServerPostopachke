@@ -13,13 +13,27 @@ def create_recipe(author_id, title='Без названия', description='', de
     db.session.commit()
     return ({'message': 'Рецепт создан'}, 201) if status_return else {'message': 'Рецепт создан'}
 
-def get_all_recipes(status_return:bool=False):
+def get_all_recipes(status_return:bool=False, recursion:bool=False):
+    '''
+    :param status_return=False: get status code
+    :param recursion=False:
+    :return:
+    '''
     recipes = Recipe.query.all()
-    return ({"data":[recipe.to_dict() for recipe in recipes]}, 200) if status_return else {"data":[recipe.to_dict() for recipe in recipes]}
+    res={"data":[recipe.to_dict(recursion=recursion) for recipe in recipes]}
+    return (res, 200) if status_return else res
 
-def get_recipe_by_id(recipe_id, dict:bool=True, status_return:bool=False):
+def get_recipe_by_id(recipe_id, dict:bool=True, status_return:bool=False,recursion:bool=False):
+    '''
+    :param recipe_id:
+    :param dict=True: get dict
+    :param status_return=False: get status code
+    :param recursion=False:
+    :return:
+    '''
     recipe = Recipe.query.get(recipe_id)
+    res={'data':recipe.to_dict(recursion=recursion)} if dict else recipe
     if recipe:
-        return (({'data':recipe.to_dict()} if dict else recipe, 200 )) if status_return else ({'data':recipe.to_dict()} if dict else recipe)
+        return (res, 200 ) if status_return else res
     else:
         return (None, 401) if status_return else None

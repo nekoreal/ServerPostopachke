@@ -10,8 +10,8 @@ class Recipe(db.Model):
     caloric_content = db.Column(db.Integer, nullable=False, default=0)
 
 
-    def to_dict(self):
-        return {
+    def to_dict(self,recursion:bool=False):
+        res={
             'id': self.id,
             'author_id': self.author_id,
             'title': self.title,
@@ -20,6 +20,10 @@ class Recipe(db.Model):
             'rating': self.rating,
             'caloric_content': self.caloric_content
         }
+        if recursion: res.update({
+            'author': self.author.to_dict()
+        })
+        return res
 
     def __repr__(self):
         return (f"<({self.id}) {self.title}>\n" 

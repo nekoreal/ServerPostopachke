@@ -14,14 +14,28 @@ def create_user(username: str, password: str, status_return:bool=False):
     db.session.commit()
     return ({'message': 'Пользователь создан'}, 201)  if status_return else {'message': 'Пользователь создан'}
 
-def get_all_users(status_return:bool=False):
+def get_all_users(status_return:bool=False, recursion:bool=False):
+    '''
+    :param status_return=False: get status code
+    :param recursion=False:
+    :return:
+    '''
     users = User.query.all()
-    return ({"data":[user.to_dict() for user in users]}, 200) if status_return else {"data":[user.to_dict() for user in users]}
+    res={"data":[user.to_dict(recursion=recursion) for user in users]}
+    return ( res, 200) if status_return else res
 
 
-def get_user_by_id(user_id,dict:bool=True, status_return:bool=False):
+def get_user_by_id(user_id,dict:bool=True, status_return:bool=False, recursion:bool=False):
+    '''
+        :param user_id:
+        :param dict=True: get dict
+        :param status_return=False: get status code
+        :param recursion=False:
+        :return:
+        '''
     user = User.query.get(user_id)
+    res = {'data':user.to_dict(recursion=recursion)} if dict else user
     if user:
-        return (({"data":user.to_dict()} if dict else user) ,200 )if status_return else {"data":user.to_dict()} if dict else user
+        return (res ,200 )if status_return else res
     else:
         return None, 401 if status_return else None

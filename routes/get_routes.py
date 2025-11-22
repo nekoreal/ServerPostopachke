@@ -7,7 +7,7 @@ get_bp=Blueprint('get_bp', __name__)
 
 @get_bp.route('/get_all_users', methods=['GET'])
 def get_all_users_route():
-    return jsonify(user_controller.get_all_users())
+    return jsonify(user_controller.get_all_users(recursion=True))
 
 @get_bp.route('/get_all_recipes', methods=['GET'])
 def get_all_recipes_route():
