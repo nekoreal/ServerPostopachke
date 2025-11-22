@@ -1,0 +1,6 @@
+test.py
+*.jpg
+*.png
+.idea
+config.py
+__pycache__/
