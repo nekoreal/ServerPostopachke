@@ -7,8 +7,8 @@ from utils.tokens import generate_access_token
 
 def register_user(data):
     try:
-        username = data['username']
-        password = data['password']
+        username = data.get('username')
+        password = data.get('password')
     except:
         return {'error': 'Некорректные данные'}, 400
 
@@ -30,8 +30,8 @@ def register_user(data):
 
 def login_user(data):
     try:
-        username = data['username']
-        password = data['password']
+        username = data.get('username')
+        password = data.get('password')
     except:
         return {'error': 'Некорректные данные'}, 400
 
