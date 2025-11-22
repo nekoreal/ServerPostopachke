@@ -16,4 +16,5 @@ def login_user_route():
 @post_bp.route('/test', methods=['POST'])
 def test():
     print(request.form)
-    return 'Да была'
+    response = f'(Product("Яблоко","Свежее красное яблоко","","des"),Product("Банан","Спелый жёлтый банан","","description"),)'
+    return jsonify(response)
