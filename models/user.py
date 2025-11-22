@@ -7,14 +7,21 @@ class User(db.Model):
     is_admin = db.Column(db.Boolean, nullable=False, default=False)
     is_banned = db.Column(db.Boolean, nullable=False, default=False)
 
+    recipes = db.relationship('Recipe', backref='author', lazy=True, cascade='all, delete-orphan')
+
+    def get_recipes(self):
+        return [recipe.to_dict() for recipe in self.recipes]
+
     def to_dict(self):
         return {
             'id': self.id,
             'username': self.username,
             'password_hash': self.password_hash,
             'is_admin': self.is_admin,
-            'is_banned': self.is_banned
+            'is_banned': self.is_banned,
+            'recipes': [ recipe.to_dict() for recipe in self.recipes ],
         }
 
     def __repr__(self):
-        return f"<({self.id}) {self.username}>"
+        return (f"({self.id} id) {self.username}\n"
+                f"{'\n-----------------------\n'.join(list([ recipe.to_dict().__repr__() for recipe in self.recipes ]))}" )
