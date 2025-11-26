@@ -1,5 +1,5 @@
 from flask import Blueprint,request,jsonify
-
+from models.recipe import Recipe
 from controllers import user_controller, auth_controller
 
 post_bp=Blueprint('post_bp', __name__)
@@ -15,6 +15,6 @@ def login_user_route():
 
 @post_bp.route('/test', methods=['POST'])
 def test():
-    print(request.form)
-    response=f'(Product("Яблоко","Свежее красное яблоко","","des"),Product("Банан","Спелый жёлтый банан","","description"),)'
-    return response, 200
+    res = {"data":Recipe.query.first().to_dict(recursion=True)}
+    print(res)
+    return jsonify(res) , 200

@@ -27,12 +27,12 @@ def get_all_users(status_return:bool=False, recursion:bool=False):
 
 def get_user_by_id(user_id,dict:bool=True, status_return:bool=False, recursion:bool=False):
     '''
-        :param user_id:
-        :param dict=True: get dict
-        :param status_return=False: get status code
-        :param recursion=False:
-        :return:
-        '''
+    :param user_id:
+    :param dict=True: get dict
+    :param status_return=False: get status code
+    :param recursion=False:
+    :return:
+    '''
     user = User.query.get(user_id)
     res = {'data':user.to_dict(recursion=recursion)} if dict else user
     if user:

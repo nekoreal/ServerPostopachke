@@ -3,7 +3,7 @@ from databasedir.database import db
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
     username = db.Column(db.String(80), unique=True, nullable=False)
-    password_hash = db.Column(db.String, nullable=False)
+    password_hash = db.Column(db.String(128), nullable=False) #128 максимум для хэщ паролей
     is_admin = db.Column(db.Boolean, nullable=False, default=False)
     is_banned = db.Column(db.Boolean, nullable=False, default=False)
 
@@ -18,7 +18,7 @@ class User(db.Model):
             'username': self.username,
             'password_hash': self.password_hash,
             'is_admin': self.is_admin,
-            'is_banned': self.is_banned
+            'is_banned': self.is_banned,
         }
         if recursion: res.update({
             'recipes': [ recipe.to_dict() for recipe in self.recipes ]

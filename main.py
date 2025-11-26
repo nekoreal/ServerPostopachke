@@ -1,9 +1,11 @@
 from flask import Flask
 from flask_cors import CORS
 from config import Config
+from models import ingredient
 
 from models.user import User
 from models.recipe import Recipe
+from models.ingredient import Ingredient, Recipe_ingredient
 #Это нужно, чтобы sqlachery увидел их
 
 app = Flask(__name__)
@@ -29,5 +31,6 @@ app.register_blueprint(post_routes.post_bp)
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
+
     app.run(debug=True, host="0.0.0.0", port=5001)
 
