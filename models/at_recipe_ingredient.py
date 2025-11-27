@@ -1,4 +1,6 @@
 from databasedir.database import db
+#AT - associative table recipe ingrediennt
+
 
 class Recipe_ingredient(db.Model):
     __tablename__ = 'recipe_ingredient'
@@ -8,3 +10,8 @@ class Recipe_ingredient(db.Model):
     #AT associative table
     recipe = db.relationship("Recipe", back_populates="AT_recipe_ingredient")
     ingredient = db.relationship("Ingredient", back_populates="AT_recipe_ingredient")
+
+    def __repr__(self):
+        return (f'<Recipe {self.recipe_id}>'
+                f'<Ingredient {self.ingredient_id}>'
+                f'<amount {self.amount}>')

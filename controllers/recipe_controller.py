@@ -1,7 +1,7 @@
 from models.recipe import Recipe
 from databasedir.database import db
 
-def create_recipe(author_id, title='Без названия', description='', description_of_cooking_process='', rating=0.0, caloric_content=1, status_return:bool=False):
+def create_recipe(author_id, title='Без названия', description='Пусто', description_of_cooking_process='Пусто', rating=0.0, caloric_content=1, status_return:bool=False):
     db.session.add(Recipe(
         author_id=author_id,
         title=title,

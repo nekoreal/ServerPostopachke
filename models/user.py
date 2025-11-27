@@ -16,7 +16,6 @@ class User(db.Model):
         res={
             'id': self.id,
             'username': self.username,
-            'password_hash': self.password_hash,
             'is_admin': self.is_admin,
             'is_banned': self.is_banned,
         }
