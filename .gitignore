@@ -4,3 +4,8 @@ test.py
 .idea
 config.py
 __pycache__/
+.venv/
+nohup.out
+pylog.txt
+startPythonServer.sh
+venvlog.txt
