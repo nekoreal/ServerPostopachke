@@ -1,0 +1,14 @@
+
+
+2025-11-29 05:38:21.357641
+Func nme:register_user
+args:(ImmutableMultiDict([('username', 'nekoavg'), ('password', 'f12345')]),)
+kwargs:{}
+res:({'message': 'Регистрация прошла успешна', 'username': 'nekoavg', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2NDM4MzkwMSwianRpIjoiYWJlZmFiZWYtZWJmYi00YjFlLWJiYzUtNDQ0MDFjYTZhMDc5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzY0MzgzOTAxLCJjc3JmIjoiZWI3NjY3NzItYjc2MS00MzQ1LTg0ZmUtMGQzZWE4NWRjMGNlIiwiZXhwIjoxNzY0Mzg0ODAxfQ.tJ-LaLnn13C9jeDw79WlNKah0eY2t4kt5Ed83BwefV0', 'status_code': 200}, 200)
+
+
+2025-11-29 06:04:11.389856
+Func nme:register_user
+args:(ImmutableMultiDict([('username', 'nekoavg2'), ('password', 'f12345')]),)
+kwargs:{}
+res:({'message': 'Регистрация прошла успешна', 'username': 'nekoavg2', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2NDM4NTQ1MSwianRpIjoiZjgxMTUwMzEtYTMyZi00NTJhLTlhZmUtZGZiNmVjZmFmMjQzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OSwibmJmIjoxNzY0Mzg1NDUxLCJjc3JmIjoiMzZmMTBkYTMtYmFlYy00ODhlLTg1N2MtYjg1YTM3NjNjY2M1IiwiZXhwIjoxNzY0Mzg2MzUxfQ.9x1olH2IROVkCM26DVgbqurpqed2Qp5ZMkYH2cakrXY', 'status_code': 200}, 200)

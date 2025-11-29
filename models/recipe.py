@@ -22,10 +22,10 @@ class Recipe(db.Model):
             'description_of_cooking_process': self.description_of_cooking_process,
             'rating': self.rating,
             'caloric_content': self.caloric_content,
+            'ingredients': [AT.ingredient.to_dict(amount=AT.amount) for AT in self.AT_recipe_ingredient],
         }
         if recursion: res.update({
             'author': self.author.to_dict(),
-            'ingredients': [ AT.ingredient.to_dict(amount=AT.amount) for AT in self.AT_recipe_ingredient ],
         })
         return res
 

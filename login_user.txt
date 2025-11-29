@@ -789,3 +789,45 @@ Func nme:login_user
 args:(ImmutableMultiDict([('username', 'mene'), ('password', '228a')]),)
 kwargs:{}
 res:({'message': 'Авторизация прошла успешно', 'username': 'mene', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2NDM4MTQwOSwianRpIjoiN2M1ZmMyNDctMWIxMS00NTM1LWE4ODYtYjAwYjRiMjdiMDVjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NSwibmJmIjoxNzY0MzgxNDA5LCJjc3JmIjoiNTYzZTllZjktMGIxNC00ZTZjLTlkNzAtMzZiMmJjYWUwZDM0IiwiZXhwIjoxNzY0MzgyMzA5fQ.xkX4OHuPr-lrDBojPj6hFyQgm_3fi_kqr0RPtm3aji4', 'status_code': 200}, 200)
+
+
+2025-11-29 05:15:48.309246
+Func nme:login_user
+args:(ImmutableMultiDict([('username', 'mene'), ('password', '228a')]),)
+kwargs:{}
+res:({'message': 'Авторизация прошла успешно', 'username': 'mene', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2NDM4MjU0OCwianRpIjoiZTQ4MDJiZGEtYzRmOS00MDEyLWE5ODktMDgzZDlhNDhmNTNkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NSwibmJmIjoxNzY0MzgyNTQ4LCJjc3JmIjoiN2U2ZmM5ZmQtZDM4YS00YTNlLThiOWEtN2U1NTUwYmI1NmY1IiwiZXhwIjoxNzY0MzgzNDQ4fQ.mOE27d4N7Cy92FnsaPhnxCPw2awq8eXIF4QyreN2trs', 'status_code': 200}, 200)
+
+
+2025-11-29 05:29:23.141025
+Func nme:login_user
+args:(ImmutableMultiDict([('username', 'mene'), ('password', '228a')]),)
+kwargs:{}
+res:({'message': 'Авторизация прошла успешно', 'username': 'mene', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2NDM4MzM2MywianRpIjoiNTBkYzAyNDAtMDc4Yy00MTlmLTk1M2EtNWM0ZjNjYzYxNTM3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NSwibmJmIjoxNzY0MzgzMzYzLCJjc3JmIjoiODNjYjE0YmEtMTQ2Ny00N2I5LTlmOWQtNTFhYTU4ZGViZDk4IiwiZXhwIjoxNzY0Mzg0MjYzfQ.VQMREphTCPGNB91Tn5r3oucDUJ-cszwbgs87wxlD9G4', 'status_code': 200}, 200)
+
+
+2025-11-29 05:30:45.643958
+Func nme:login_user
+args:(ImmutableMultiDict([('username', 'mene'), ('password', '228a')]),)
+kwargs:{}
+res:({'message': 'Авторизация прошла успешно', 'username': 'mene', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2NDM4MzQ0NSwianRpIjoiZDYxY2Q4MWEtZDg2YS00ZjBjLTk5OGYtODk5MTE0Y2U5MzdjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NSwibmJmIjoxNzY0MzgzNDQ1LCJjc3JmIjoiZjcxMTNkNjgtYmUxOC00M2FjLWJmOTMtMDBlN2QxNjI5OTcxIiwiZXhwIjoxNzY0Mzg0MzQ1fQ.QAHk6r8GpvE59pCbcT6Kcocg6SotWylIX_0LQr5CtoY', 'status_code': 200}, 200)
+
+
+2025-11-29 06:16:01.529414
+Func nme:login_user
+args:(ImmutableMultiDict([('username', 'nekoavg2'), ('password', 'f12345')]),)
+kwargs:{}
+res:({'message': 'Авторизация прошла успешно', 'username': 'nekoavg2', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2NDM4NjE2MSwianRpIjoiNjFmYWNiODMtOGY1NC00MGRjLWIxMjMtZmQxZTMxNzhlYjhlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OSwibmJmIjoxNzY0Mzg2MTYxLCJjc3JmIjoiYTgwOTkzNzMtNjg2OC00OWUzLTllZDMtNDFlNGMxOWZlZjBmIn0.GqtSfYQvtK_-wlQ1c7SaPXUSeSx6Hm_ztDjXlEqp35Y', 'status_code': 200}, 200)
+
+
+2025-11-29 06:27:54.394359
+Func nme:login_user
+args:(ImmutableMultiDict([('username', 'nekoavg'), ('password', 'f12345')]),)
+kwargs:{}
+res:({'message': 'Авторизация прошла успешно', 'username': 'nekoavg', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2NDM4Njg3NCwianRpIjoiZTg5NWQ3YTItOWY2My00OTAxLWE1NmEtYWZmZDcwYTQ0NTYyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjgiLCJuYmYiOjE3NjQzODY4NzQsImNzcmYiOiI5ZjliNDA1Ny0wOWIwLTQwOGItOTlmYy03NjhlNjQwNzQxNWIifQ.NIuf1Q3QhnUt83-jNJq71mc_1M0x8dGmwiT1GFBGoQs', 'status_code': 200}, 200)
+
+
+2025-11-29 06:30:37.327211
+Func nme:login_user
+args:(ImmutableMultiDict([('username', 'leonid'), ('password', '12345')]),)
+kwargs:{}
+res:({'message': 'Авторизация прошла успешно', 'username': 'leonid', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2NDM4NzAzNywianRpIjoiMmJmNWM3ODctOGRhNy00Y2M3LWE0NjctYTIzNDllZGZiMDM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjMiLCJuYmYiOjE3NjQzODcwMzcsImNzcmYiOiI3YjY4NGU3Ny1hMTQ2LTQ4MTQtYWVhMC1hYmFmNmUwYjYwY2QifQ.OOj4haI9LjbwKK5KnCh7u7oZWZ8iNyKFuYh1IUEeU6I', 'status_code': 200}, 200)

@@ -8,4 +8,5 @@ def init_jwt(app):
     jwt.init_app(app)
 
 def generate_access_token(identity):
-    return create_access_token(identity=identity)
+    identity = str(identity)
+    return create_access_token(identity=identity, expires_delta=False)
