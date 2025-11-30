@@ -8,7 +8,8 @@ from  utils.logger import logger
 
 @logger('auth_controller.txt',
         printlog=True,
-        time=True)
+        time=True,
+        only_exception=False)
 def register_user(data):
     try:
         username = data.get('username')
@@ -38,7 +39,8 @@ def register_user(data):
 
 @logger('auth_controller.txt',
         printlog=True,
-        time=True)
+        time=True,
+        only_exception=False)
 def login_user(data):
     try:
         username = data.get('username')

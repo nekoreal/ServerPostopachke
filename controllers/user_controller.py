@@ -43,5 +43,5 @@ def get_user_by_id(user_id,dict:bool=True, status_return:bool=False, recursion:b
 
 def get_user_recipes_by_id(user_id, dict:bool=True, status_return:bool=False):
     current_user  = get_user_by_id(user_id, dict=False)
-    res = [ recipe.to_dict() for recipe in current_user.recipes] if dict else current_user.recipes
+    res = {"data": [ recipe.to_dict() for recipe in current_user.recipes] if dict else current_user.recipes }
     return (res ,200 )if status_return else res

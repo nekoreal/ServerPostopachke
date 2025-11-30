@@ -2,7 +2,6 @@ from PIL import Image
 from io import BytesIO
 from miniIO_S3.S3photos import upload_photo_bytes, get_photo_bytes
 
-
 def get_avatar_bytes(user_id):
     avatar_bytes = get_photo_bytes(user_id, 'avatars')
     if avatar_bytes is None:
@@ -22,8 +21,6 @@ def save_avatar(img: Image.Image, user_id, size:int=100):
     upload_photo_bytes(user_id, output, 'avatars')
     return {"message": "Avatar saved"}
     #return output_for_return
-
-
 
 def process_image_to_square(img: Image.Image, size:int=100) -> Image.Image:
     width, height = img.size
