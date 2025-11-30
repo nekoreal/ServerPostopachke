@@ -2,7 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 from config import Config
 from models import ingredient
-
+from utils.logger import make_log
 from models.user import User
 from models.recipe import Recipe
 from models.ingredient import Ingredient
@@ -23,6 +23,8 @@ init_jwt(app)
 from utils.hash_password import init_bcrypt
 init_bcrypt(app)
 
+from miniIO_S3.S3 import init_s3
+init_s3()
 
 #регистрация blueprintov с файлов где были созданы blueprint'ы
 from routes import get_routes, post_routes
@@ -33,6 +35,7 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
 
-
+    make_log("ServerStarting", "inits.txt", True, True)
     app.run(debug=True,host="0.0.0.0", port=5001)
+
 

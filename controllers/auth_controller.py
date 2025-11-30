@@ -6,7 +6,7 @@ import re
 from  utils.logger import logger
 
 
-@logger('register_user.txt',
+@logger('auth_controller.txt',
         printlog=True,
         time=True)
 def register_user(data):
@@ -36,7 +36,7 @@ def register_user(data):
     return { 'message':"Регистрация прошла успешна",'username': new_user.username, "token":token, "status_code":200}, 200
 
 
-@logger('login_user.txt',
+@logger('auth_controller.txt',
         printlog=True,
         time=True)
 def login_user(data):

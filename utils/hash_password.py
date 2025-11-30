@@ -1,7 +1,10 @@
 from flask_bcrypt import Bcrypt
+from utils.logger import logger
 
 bcrypt = Bcrypt()
 
+
+@logger(txtfile="inits.txt", printlog=True, raiseexc=True, time=True)
 def init_bcrypt(app):
     bcrypt.init_app(app)
 

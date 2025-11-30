@@ -9,3 +9,7 @@ nohup.out
 pylog.txt
 startPythonServer.sh
 venvlog.txt
+inits.txt
+login.txt
+register.txt
+auth_controller.txt
