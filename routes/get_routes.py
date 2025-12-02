@@ -22,30 +22,36 @@ get_bp=Blueprint('get_bp', __name__)
 
 @get_bp.route('/get_all_users', methods=['GET'])
 def get_all_users_route():
-    return jsonify(user_controller.get_all_users(recursion=True))
+    recursion = request.args.get('recursion', 'false').lower() == 'true'
+    return jsonify(user_controller.get_all_users(recursion=recursion))
 
 @get_bp.route('/get_all_recipes', methods=['GET'])
 def get_all_recipes_route():
-    return jsonify(recipe_controller.get_all_recipes(recursion=True))
+    recursion = request.args.get('recursion', 'false').lower() == 'true'
+    return jsonify(recipe_controller.get_all_recipes(recursion=recursion))
 
 @get_bp.route('/get_all_ingredients', methods=['GET'])
 def get_all_ingredients_route():
-    return jsonify(ingredient_controller.get_all_ingredients(recursion=True))
+    recursion = request.args.get('recursion', 'false').lower() == 'true'
+    return jsonify(ingredient_controller.get_all_ingredients(recursion=recursion))
 
 @get_bp.route('/get_all_ratings', methods=['GET'])
 def get_all_ratings_route():
-    return jsonify(rating_controller.get_all_ratings(recursion=True))
+    recursion = request.args.get('recursion', 'false').lower() == 'true'
+    return jsonify(rating_controller.get_all_ratings(recursion=recursion))
 
 @get_bp.route('/get_my_recipes', methods=['GET'])
 @jwt_required()
 def get_my_recipes_route():
-    return jsonify(user_controller.get_user_recipes_by_id(int(get_jwt_identity())))
+    recursion = request.args.get('recursion', 'false').lower() == 'true'
+    return jsonify(user_controller.get_user_recipes_by_id(int(get_jwt_identity()), recursion=recursion))
 
 
 @get_bp.route('/get_my_ratings', methods=['GET'])
 @jwt_required()
 def get_my_ratings_route():
-    return jsonify(user_controller.get_user_ratings_by_id(int(get_jwt_identity()), recursion=True))
+    recursion = request.args.get('recursion', 'false').lower() == 'true'
+    return jsonify(user_controller.get_user_ratings_by_id(int(get_jwt_identity()), recursion=recursion))
 
 @get_bp.route('/get_my_avatar', methods=['GET'])
 @jwt_required()

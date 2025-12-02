@@ -1,7 +1,8 @@
 from models.rating import Rating
 from databasedir.database import db
 
-def create_rating(author_id, recipe_id, rating:int=5, status_return:bool=False):
+def set_rating(author_id, recipe_id, rating:int|str=5, status_return:bool=False):
+    rating = int(rating)
     existing_rating = Rating.query.filter_by(author_id=author_id, recipe_id=recipe_id).first()
     if existing_rating:
         existing_rating.rating = rating

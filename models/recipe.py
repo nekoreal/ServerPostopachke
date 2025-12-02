@@ -1,4 +1,5 @@
 from databasedir.database import db
+from models.rating import Rating
 
 
 class Recipe(db.Model):
@@ -7,10 +8,9 @@ class Recipe(db.Model):
     title = db.Column(db.String(80), nullable=False, default='Пусто')
     description = db.Column(db.Text, nullable=False, default='Пусто')
     description_of_cooking_process = db.Column(db.Text, nullable=False, default='Пусто')
-    rating = db.Column(db.Float, nullable=True, default=0.0)
     caloric_content = db.Column(db.Integer, nullable=False, default=0)
 
-    ratings = db.relationship('Rating', back_populates='recipe', cascade="all, delete-orphan")
+    ratings = db.relationship('Rating', back_populates='recipe', cascade="all, delete-orphan", lazy='dynamic') #dynamic чтобы в avg полули не список , а запрос для дальнейших действий
 
     # AT associative table
     AT_recipe_ingredient = db.relationship("Recipe_ingredient", back_populates="recipe",cascade='all, delete-orphan')
@@ -22,7 +22,7 @@ class Recipe(db.Model):
             'title': self.title,
             'description': self.description,
             'description_of_cooking_process': self.description_of_cooking_process,
-            'rating': self.rating,
+            'rating': self.avg_rating,
             'caloric_content': self.caloric_content,
             'ingredients': [AT.ingredient.to_dict(amount=AT.amount) for AT in self.AT_recipe_ingredient],
         }
@@ -37,4 +37,10 @@ class Recipe(db.Model):
                 f"{self.title}\n"
                 f"{self.description}\n"
                 f"{self.description}\n")
+
+    @property
+    def avg_rating(self):
+        ratings = self.ratings.with_entities(db.func.avg(Rating.rating)).scalar() #Что бы работало lazy = dynamic
+        return round(ratings, 1) if ratings else "0"
+
 
