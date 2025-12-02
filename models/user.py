@@ -8,6 +8,7 @@ class User(db.Model):
     is_banned = db.Column(db.Boolean, nullable=False, default=False)
 
     recipes = db.relationship('Recipe', backref='author', lazy=True, cascade='all, delete-orphan')
+    ratings = db.relationship('Rating', back_populates='author', cascade="all, delete-orphan")
 
     def get_recipes(self):
         return [recipe.to_dict() for recipe in self.recipes]

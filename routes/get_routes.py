@@ -3,10 +3,11 @@ from sqlalchemy import text #для сырых запросов текстом �
 from sqlalchemy.sql.functions import current_user
 from io import BytesIO
 from databasedir.database import db
-from controllers import user_controller, recipe_controller, ingredient_controller, at_recipe_ingredient_controller, auth_controller, avatar_controller
+from controllers import user_controller, recipe_controller, ingredient_controller, at_recipe_ingredient_controller, auth_controller, avatar_controller, rating_controller
 
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
+from models.rating import Rating
 from utils.logger import logger
 
 from models.recipe import Recipe
@@ -31,10 +32,20 @@ def get_all_recipes_route():
 def get_all_ingredients_route():
     return jsonify(ingredient_controller.get_all_ingredients(recursion=True))
 
+@get_bp.route('/get_all_ratings', methods=['GET'])
+def get_all_ratings_route():
+    return jsonify(rating_controller.get_all_ratings(recursion=True))
+
 @get_bp.route('/get_my_recipes', methods=['GET'])
 @jwt_required()
 def get_my_recipes_route():
     return jsonify(user_controller.get_user_recipes_by_id(int(get_jwt_identity())))
+
+
+@get_bp.route('/get_my_ratings', methods=['GET'])
+@jwt_required()
+def get_my_ratings_route():
+    return jsonify(user_controller.get_user_ratings_by_id(int(get_jwt_identity()), recursion=True))
 
 @get_bp.route('/get_my_avatar', methods=['GET'])
 @jwt_required()

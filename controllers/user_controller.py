@@ -41,7 +41,12 @@ def get_user_by_id(user_id,dict:bool=True, status_return:bool=False, recursion:b
         return None, 401 if status_return else None
 
 
-def get_user_recipes_by_id(user_id, dict:bool=True, status_return:bool=False):
+def get_user_recipes_by_id(user_id, dict:bool=True, status_return:bool=False, recursion:bool=False):
     current_user  = get_user_by_id(user_id, dict=False)
-    res = {"data": [ recipe.to_dict() for recipe in current_user.recipes] if dict else current_user.recipes }
+    res = {"data": [ recipe.to_dict(recursion=recursion) for recipe in current_user.recipes] if dict else current_user.recipes }
+    return (res ,200 )if status_return else res
+
+def get_user_ratings_by_id(user_id, dict:bool=True, status_return:bool=False, recursion:bool=False):
+    current_user  = get_user_by_id(user_id, dict=False)
+    res = {"data": [ rating.to_dict(recursion=recursion) for rating in current_user.ratings] if dict else current_user.ratings }
     return (res ,200 )if status_return else res

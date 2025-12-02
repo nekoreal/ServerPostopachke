@@ -9,9 +9,11 @@ class Recipe(db.Model):
     description_of_cooking_process = db.Column(db.Text, nullable=False, default='Пусто')
     rating = db.Column(db.Float, nullable=True, default=0.0)
     caloric_content = db.Column(db.Integer, nullable=False, default=0)
+
+    ratings = db.relationship('Rating', back_populates='recipe', cascade="all, delete-orphan")
+
     # AT associative table
     AT_recipe_ingredient = db.relationship("Recipe_ingredient", back_populates="recipe",cascade='all, delete-orphan')
-
 
     def to_dict(self,recursion:bool=False):
         res={
@@ -26,6 +28,7 @@ class Recipe(db.Model):
         }
         if recursion: res.update({
             'author': self.author.to_dict(),
+            'ratings': [rating.to_dict() for rating in self.ratings],
         })
         return res
 
