@@ -2,13 +2,13 @@ from PIL import Image
 from io import BytesIO
 from miniIO_S3.S3photos import upload_photo_bytes, get_photo_bytes
 
-def get_avatar_bytes(user_id):
+def get_avatar_bytes(user_id, *args, **kwargs):
     avatar_bytes = get_photo_bytes(user_id, 'avatars')
     if avatar_bytes is None:
         avatar_bytes = get_photo_bytes("defoultAvatar", 'avatars')
     return avatar_bytes
 
-def save_avatar(img: Image.Image, user_id, size:int=100):
+def save_avatar(img: Image.Image, user_id, size:int=100, *args, **kwargs):
     processed_img=process_image_to_square(img)
 
     output = BytesIO()
@@ -22,7 +22,7 @@ def save_avatar(img: Image.Image, user_id, size:int=100):
     return {"message": "Avatar saved"}
     #return output_for_return
 
-def process_image_to_square(img: Image.Image, size:int=100) -> Image.Image:
+def process_image_to_square(img: Image.Image, size:int=100, *args, **kwargs):
     width, height = img.size
     min_side = min(width, height)
     left = (width - min_side) // 2

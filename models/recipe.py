@@ -19,6 +19,7 @@ class Recipe(db.Model):
         res={
             'id': self.id,
             'author_id': self.author_id,
+            'author_username': self.author.username,
             'title': self.title,
             'description': self.description,
             'description_of_cooking_process': self.description_of_cooking_process,

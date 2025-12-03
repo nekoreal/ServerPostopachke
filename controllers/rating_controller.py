@@ -1,7 +1,7 @@
 from models.rating import Rating
 from databasedir.database import db
 
-def set_rating(author_id, recipe_id, rating:int|str=5, status_return:bool=False):
+def set_rating(author_id, recipe_id, rating:int|str=5, status_return:bool=False, *args, **kwargs):
     rating = int(rating)
     existing_rating = Rating.query.filter_by(author_id=author_id, recipe_id=recipe_id).first()
     if existing_rating:
@@ -14,7 +14,7 @@ def set_rating(author_id, recipe_id, rating:int|str=5, status_return:bool=False)
         db.session.commit()
         return ({'message': 'Оценка создана'}, 201) if status_return else {'message': 'Оценка создана'}
 
-def delete_rating(author_id, recipe_id,  status_return:bool=False):
+def delete_rating(author_id, recipe_id,  status_return:bool=False, *args, **kwargs):
     existing_rating:Rating = Rating.query.filter_by(author_id=author_id, recipe_id=recipe_id).first()
     if existing_rating:
         db.session.delete(existing_rating)
@@ -25,7 +25,7 @@ def delete_rating(author_id, recipe_id,  status_return:bool=False):
 
 
 
-def get_all_ratings(status_return:bool=False, recursion:bool=False):
+def get_all_ratings(status_return:bool=False, recursion:bool=False, *args, **kwargs):
     '''
     :param status_return=False: get status code
     :param recursion=False:
@@ -34,8 +34,3 @@ def get_all_ratings(status_return:bool=False, recursion:bool=False):
     ratings = Rating.query.all()
     res={"data":[rating.to_dict(recursion=recursion) for rating in ratings]}
     return (res, 200) if status_return else res
-
-def get_user_ratings_by_id(user_id, dict:bool=True, status_return:bool=False):
-    current_user  = get_user_by_id(user_id, dict=False)
-    res = {"data": [ recipe.to_dict() for recipe in current_user.recipes] if dict else current_user.recipes }
-    return (res ,200 )if status_return else res

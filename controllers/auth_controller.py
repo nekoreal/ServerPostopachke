@@ -10,13 +10,7 @@ from  utils.logger import logger
         printlog=True,
         time=True,
         only_exception=False)
-def register_user(data):
-    try:
-        username = data.get('username')
-        password = data.get('password')
-    except:
-        return {'message': 'Некорректные данные',"status_code":400}, 400
-
+def register_user(username:str, password:str, *args, **kwargs):
     if not username or not password or len(username) < 4 or len(password) <4 or len(username) > 20 or len(password) > 20 :
         return {'message': 'Некорректные данные. Длинна пароля или логина от 4 до 20',"status_code":400}, 400
 
@@ -41,12 +35,7 @@ def register_user(data):
         printlog=True,
         time=True,
         only_exception=False)
-def login_user(data):
-    try:
-        username = data.get('username')
-        password = data.get('password')
-    except:
-        return {'message': 'Некорректные данные',"status_code":400}, 400
+def login_user(username:str, password:str, *args, **kwargs):
 
     current_user = User.query.filter_by(username=username).first()
 

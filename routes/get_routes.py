@@ -46,7 +46,6 @@ def get_my_recipes_route():
     recursion = request.args.get('recursion', 'false').lower() == 'true'
     return jsonify(user_controller.get_user_recipes_by_id(int(get_jwt_identity()), recursion=recursion))
 
-
 @get_bp.route('/get_my_ratings', methods=['GET'])
 @jwt_required()
 def get_my_ratings_route():
