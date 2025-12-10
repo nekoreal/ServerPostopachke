@@ -28,7 +28,7 @@ def create_recipe_with_ingredients(
 
 def edit_recipe(
         author_id,
-        recipe_id,
+        id,
         title=None,
         description=None,
         description_of_cooking_process=None,
@@ -37,7 +37,7 @@ def edit_recipe(
         status_return:bool=False,
         *args, **kwargs
 ):
-    recipe = db.session.query(Recipe).filter_by(id=recipe_id).first()
+    recipe = db.session.query(Recipe).filter_by(id=id).first()
     if str(recipe.author_id) != str(author_id):
         return ({'message': 'Рецепт не ваш'}, 201) if status_return else {'message': 'Рецепт не ваш'}
     if not(title is None) : recipe.title = title
